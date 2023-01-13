@@ -1,0 +1,46 @@
+#full != differential != incremental | Consolidation
+
+full (complete dumps)
+differential (files changed since last full backup)
+incremental (changed files since the last backup of any sort) backups  cp -al / hardlink
+ 
+rsnapshot with hard link > if possible restore with time
+rdiff-backup
+>rdiff rdiffdir with checksum
+md5 verify
+gpg encryption
+list file
+encfs
+
+du verify
+
+#rsync 2 remote dir
+#view sshfs
+
+ssh user@server2 -L2222:127.0.0.1:22 sleep 60 &
+pid=$!
+trap "kill $pid" EXIT
+ssh user@server1 -R2222:123.123.123:22 rsync /path/to/stuff user@127.0.0.1:/destination/path/to/update -a --delete --compress -e 'ssh -p 2222'
+
+#TODO test
+ssh -R 2200:SERVER2:22 root@SERVER1 "rsync -e 'ssh -p 2200 -i /root/.ssh/id_rsa_ROOT_ON_SERVER2' --stats --progress -vaz /path/to/big/files root@localhost:/destination/path"
+
+new package expect interact
+ssh user@server1 -R2222:123.123.123:22 rsync /path/to/stuff user@127.0.0.1:/destination/path/to/update -a --delete --compress -e 'ssh -p 2222'
+
+
+ssh guest@localhost -L2222:127.0.0.1:22 sleep 60 &
+pid=$!
+trap "kill $pid" EXIT
+ssh -R 2222:barn@localhost:22 guest@localhost rsync /home/barn/mnt/ guest@127.0.0.1:/home/guest/mnt/ -a --delete --compress -e 'ssh -p 2222'
+
+
+man hardlink > consolidation
+
+#internationalisation i18n
+gettext.sh
+http://www.gnu.org/software/gettext/manual/gettext.html
+
+test backup of script directory
+
+mail

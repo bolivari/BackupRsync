@@ -1,0 +1,20 @@
+#SRC				#DEST
+src					dest
+src/				dest/
+src/test1.001		dest/
+#src				dest
+#src/				dest/
+#~/.[^.]*			dest/
+#~/Bd/				dest/Bd
+#guest@localhost:mnt/test/ 	dest/
+#../../../Damien		dest/
+/home/barn/mnt/test		/tmp/
+~/mnt/test				/tmp/
+#/home/barn/B			/tmp/
+#/home/barn/mnt			HD
+#/home/barn/Public		guest@localhost:22mnt/test
+#../../../mnt/			guest@localhost:mnt/
+#guest@localhost/		guest@localhost:22/tmp
+#/home/barn/Public		/home/barn/mnt
+#/home/barn/Public		guest@localhost/mnt/test
+
